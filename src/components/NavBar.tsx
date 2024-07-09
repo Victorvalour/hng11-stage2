@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
     setMenuIsOpen((prev) => !prev);
   }, []);
   return (
-    <div className="h-20 shadow-lg">
+    <div className="h-20 shadow-lg z-10">
       <div className="flex justify-between px-6 items-center h-full">
         <div className="flex gap-3">
           <Hamburger isClicked={menuIsOpen} toggleOpen={toggleOpen} />
@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
         </div>
       </div>
       {menuIsOpen && (
-        <div className="absolute rounded-md shadow-md w-[170px] bg-white overflow-hidden left-0 top-[112px] text-sm flex flex-col first:cursor-pointer pl-3">
+        <div className="absolute rounded-md shadow-md w-[170px] bg-white overflow-hidden left-0 top-[112px] text-sm flex flex-col first:cursor-pointer pl-3 z-10">
           <Link to="/orders">
             <MenuItem onClick={toggleOpen}>
               <div className="flex justify-between ">
