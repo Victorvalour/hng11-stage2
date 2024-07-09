@@ -6,7 +6,7 @@ export const products = [
     description: "An anti-virus software",
     price: "150.00",
     oldPrice: "300.00",
-    Categories: ["Software", "Security"],
+    categories: ["Software", "Security"],
   },
   {
     id: "2",
@@ -16,7 +16,7 @@ export const products = [
       "Microsoft Office 2016 is a powerful software suite from Microsoft, including Word, Excel, PowerPoint, and more.",
     price: "299.00",
     oldPrice: "400.00",
-    Categories: ["Software", "Productivity"],
+    categories: ["Software", "Productivity"],
   },
   {
     id: "3",
@@ -25,7 +25,7 @@ export const products = [
     description: "A powerful image editing and graphic design software.",
     price: "250.00",
     oldPrice: "350.00",
-    Categories: ["Software", "Design"],
+    categories: ["Software", "Design"],
   },
   {
     id: "4",
@@ -35,7 +35,7 @@ export const products = [
       "Protect your PC from viruses, malware, spyware, and ransomware.",
     price: "100.00",
     oldPrice: "200.00",
-    Categories: ["Software", "Security"],
+    categories: ["Software", "Security"],
   },
   {
     id: "5",
@@ -45,7 +45,7 @@ export const products = [
       "Design and shape the world around you with the powerful, connected design tools in Autodesk AutoCAD software.",
     price: "1200.00",
     oldPrice: "1500.00",
-    Categories: ["Software", "Design"],
+    categories: ["Software", "Design"],
   },
   {
     id: "6",
@@ -55,7 +55,7 @@ export const products = [
       "The latest version of the Microsoft Windows operating system.",
     price: "199.00",
     oldPrice: "299.00",
-    Categories: ["Software", "Operating System"],
+    categories: ["Software", "Operating System"],
   },
   {
     id: "7",
@@ -65,7 +65,7 @@ export const products = [
       "Graphic design software for vector illustration, layout, photo editing, and more.",
     price: "499.00",
     oldPrice: "699.00",
-    Categories: ["Software", "Design"],
+    categories: ["Software", "Design"],
   },
   {
     id: "8",
@@ -75,7 +75,7 @@ export const products = [
       "Advanced protection against viruses, malware, and online threats.",
     price: "80.00",
     oldPrice: "160.00",
-    Categories: ["Software", "Security"],
+    categories: ["Software", "Security"],
   },
   {
     id: "9",
@@ -84,7 +84,7 @@ export const products = [
     description: "Accounting software for small businesses.",
     price: "300.00",
     oldPrice: "450.00",
-    Categories: ["Software", "Business"],
+    categories: ["Software", "Business"],
   },
   {
     id: "10",
@@ -93,7 +93,7 @@ export const products = [
     description: "Comprehensive protection for your digital life.",
     price: "90.00",
     oldPrice: "180.00",
-    Categories: ["Software", "Security"],
+    categories: ["Software", "Security"],
   },
   {
     id: "11",
@@ -103,7 +103,7 @@ export const products = [
       "A collaboration hub that connects your work with the people you work with.",
     price: "12.50",
     oldPrice: "15.00",
-    Categories: ["Software", "Communication"],
+    categories: ["Software", "Communication"],
   },
   {
     id: "12",
@@ -113,7 +113,7 @@ export const products = [
       "Video conferencing software with real-time messaging and content sharing.",
     price: "14.99",
     oldPrice: "19.99",
-    Categories: ["Software", "Communication"],
+    categories: ["Software", "Communication"],
   },
   {
     id: "13",
@@ -123,7 +123,7 @@ export const products = [
       "Run multiple operating systems as virtual machines (VMs) on a single Windows or Linux PC.",
     price: "250.00",
     oldPrice: "300.00",
-    Categories: ["Software", "Virtualization"],
+    categories: ["Software", "Virtualization"],
   },
   {
     id: "14",
@@ -132,7 +132,7 @@ export const products = [
     description: "A secure file sharing and storage solution for your team.",
     price: "20.00",
     oldPrice: "25.00",
-    Categories: ["Software", "Storage"],
+    categories: ["Software", "Storage"],
   },
   {
     id: "15",
@@ -141,6 +141,6 @@ export const products = [
     description: "Premium music streaming service.",
     price: "9.99",
     oldPrice: "12.99",
-    Categories: ["Software", "Entertainment"],
+    categories: ["Software", "Entertainment"],
   },
 ];

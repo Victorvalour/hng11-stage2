@@ -1,5 +1,15 @@
 import { useParams } from "react-router-dom";
 
+export type CartProductType = {
+  id: string;
+  name: string;
+  description: string;
+  categories: string;
+  brand: string;
+  price: number;
+  quantity: number;
+};
+
 const ProductDetails = () => {
   const { id } = useParams();
   return (
