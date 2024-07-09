@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div>
       <NotifBar />
       <NavBar />
-      <main>{children}</main>
+      <main className="px-6">{children}</main>
       <Footer />
     </div>
   );
