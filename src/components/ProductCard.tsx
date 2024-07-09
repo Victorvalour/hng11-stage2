@@ -3,8 +3,8 @@
 import { Link } from "react-router-dom";
 import { formatprice } from "../utils/formatPrice";
 import { truncateText } from "../utils/truncateText";
-import { Rating } from "@mui/material";
-
+/* import { Rating } from "@mui/material";
+ */
 interface ProductCardProps {
   data: any;
 }
