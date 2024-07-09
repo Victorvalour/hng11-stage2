@@ -1,4 +1,4 @@
-import {products} from "../utils/products"
+/* import {products} from "../utils/products"
 
 export interface IProductParams{
     category?: string | null
@@ -48,4 +48,4 @@ if (category) {
 throw new Error(error)
 
     }
-}
+} */
