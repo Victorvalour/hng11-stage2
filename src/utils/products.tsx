@@ -7,6 +7,9 @@ export const products = [
     price: "150.00",
     oldPrice: "300.00",
     categories: ["Software", "Security"],
+    rating: 3,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrochuOTeWbsfJ2bDHzNDXtkBeueJaITpsPg&s",
   },
   {
     id: "2",
@@ -17,6 +20,9 @@ export const products = [
     price: "299.00",
     oldPrice: "400.00",
     categories: ["Software", "Productivity"],
+    rating: 4,
+    image:
+      "https://m.media-amazon.com/images/I/51w3rY4dNvL._AC_UF894,1000_QL80_.jpg",
   },
   {
     id: "3",
@@ -26,6 +32,9 @@ export const products = [
     price: "250.00",
     oldPrice: "350.00",
     categories: ["Software", "Design"],
+    rating: 4,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuuShYMM4lVm7-KsXlkfWiTLIfIQVylOpYeg&s",
   },
   {
     id: "4",
@@ -36,6 +45,9 @@ export const products = [
     price: "100.00",
     oldPrice: "200.00",
     categories: ["Software", "Security"],
+    rating: 5,
+    image:
+      "https://m.media-amazon.com/images/I/71bO7Si9ybL._AC_UF1000,1000_QL80_.jpg",
   },
   {
     id: "5",
@@ -46,6 +58,9 @@ export const products = [
     price: "1200.00",
     oldPrice: "1500.00",
     categories: ["Software", "Design"],
+    rating: 4.5,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2LT7A1pLdTV-BtPOUV54SM9ggUpHuT1dSeg&s",
   },
   {
     id: "6",
@@ -56,6 +71,9 @@ export const products = [
     price: "199.00",
     oldPrice: "299.00",
     categories: ["Software", "Operating System"],
+    rating: 4,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUNlei2HlN8Pw5A42zeAAIVXri2kd0xpXx4g&s",
   },
   {
     id: "7",
@@ -66,6 +84,9 @@ export const products = [
     price: "499.00",
     oldPrice: "699.00",
     categories: ["Software", "Design"],
+    rating: 5,
+    image:
+      "https://keyninjamarket.com/cdn/shop/files/Progetto-senza-titolo-removebg-preview_2024-05-31T19_48_43.463Z.png?v=1717184926",
   },
   {
     id: "8",
@@ -76,6 +97,9 @@ export const products = [
     price: "80.00",
     oldPrice: "160.00",
     categories: ["Software", "Security"],
+    rating: 0,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-9yhZJ0h62XllK6qsMxGMssISrJSl5fwM4w&s",
   },
   {
     id: "9",
@@ -85,6 +109,9 @@ export const products = [
     price: "300.00",
     oldPrice: "450.00",
     categories: ["Software", "Business"],
+    rating: 1,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSAljFWUA3ZC9VcO5eEI7wT3sHWOIXkY0fJQ&s",
   },
   {
     id: "10",
@@ -94,6 +121,9 @@ export const products = [
     price: "90.00",
     oldPrice: "180.00",
     categories: ["Software", "Security"],
+    rating: 3.5,
+    image:
+      "https://cfimg.wowcher.co.uk/cdn-cgi/image/height=487,width=727,quality=85,format=auto/https://static.wowcher.co.uk/images/deal/24899123/948921.jpg",
   },
   {
     id: "11",
@@ -104,6 +134,9 @@ export const products = [
     price: "12.50",
     oldPrice: "15.00",
     categories: ["Software", "Communication"],
+    rating: 2,
+    image:
+      "https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png",
   },
   {
     id: "12",
@@ -114,6 +147,9 @@ export const products = [
     price: "14.99",
     oldPrice: "19.99",
     categories: ["Software", "Communication"],
+    rating: 2,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnoKsmz2KgODQ199csOKu9qEr43EQaqBHr4A&s",
   },
   {
     id: "13",
@@ -124,6 +160,9 @@ export const products = [
     price: "250.00",
     oldPrice: "300.00",
     categories: ["Software", "Virtualization"],
+    rating: 3,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5eI2W-NjGyJE9wjHhns1krW0m3Lg6FRLF1A&s",
   },
   {
     id: "14",
@@ -133,6 +172,9 @@ export const products = [
     price: "20.00",
     oldPrice: "25.00",
     categories: ["Software", "Storage"],
+    rating: 4,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzDpiDLUOGBBYXwOpP6gsXjpMNJTmPNRDoAA&s",
   },
   {
     id: "15",
@@ -142,5 +184,8 @@ export const products = [
     price: "9.99",
     oldPrice: "12.99",
     categories: ["Software", "Entertainment"],
+    rating: 5,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeSxI2BzkmYfvGqWUDnOn697vxq2cof6WlqafyZbSu5f4YNPYrCTOIedy3l0hiSUtECTA&usqp=CAU",
   },
 ];
