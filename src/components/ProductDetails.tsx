@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 import {
   Breadcrumb,
@@ -15,7 +15,7 @@ import SetQuantity from "./SetQuantity";
 import { useCart } from "../hooks/useCart";
 import { MdFavoriteBorder } from "react-icons/md";
 import Button from "./Button";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ProductDetailsProps {
   product: any;
@@ -34,7 +34,23 @@ export type CartProductType = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const { id } = useParams();
-  const { handleAddProductToCart } = useCart();
+  const navigate = useNavigate();
+  const { handleAddProductToCart, cartProducts } = useCart();
+
+  const [isProductInCart, setIsProductInCart] = useState(false);
+
+  useEffect(() => {
+    setIsProductInCart(false);
+    if (cartProducts) {
+      const existingIndex = cartProducts.findIndex(
+        (item) => item.id === product.id
+      );
+
+      if (existingIndex > -1) {
+        setIsProductInCart(true);
+      }
+    }
+  }, [cartProducts]);
 
   const [cartProduct, setCartProduct] = useState<CartProductType>({
     id: product.id,
@@ -130,11 +146,18 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               <MdFavoriteBorder /> Wishlist
             </button>
           </div>
-
-          <Button
-            label="Add to Cart"
-            onClick={() => handleAddProductToCart(cartProduct)}
-          />
+          {isProductInCart ? (
+            <Button
+              outline
+              label="View Cart"
+              onClick={() => navigate("/cart")}
+            />
+          ) : (
+            <Button
+              label="Add to Cart"
+              onClick={() => handleAddProductToCart(cartProduct)}
+            />
+          )}
         </div>
       </div>
 
@@ -156,10 +179,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             <div className="py-4">
               <h2 className="text-lg font-medium mb-2">Tab 3 Content</h2>
               <p className="text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis harum
-                quisquam eius sed odit fugiat iusto fuga praesentium option
+                This section is for custmer feedbacks.
               </p>
             </div>
           </Tab>
