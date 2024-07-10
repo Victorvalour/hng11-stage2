@@ -16,9 +16,10 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
     handleRemoveProductFromCart,
     handleCartQtyIncrease,
     handleCartQtyDecrease,
+    cartTotalQty,
   } = useCart();
 
-  console.log(item);
+  console.log(cartTotalQty);
 
   return (
     <div className="grid grid-cols-5 text-xs md:text-sm gap-4 border-t-[1.5px] border-slate-200 py-4 items-center">

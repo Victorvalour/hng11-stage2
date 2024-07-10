@@ -2,22 +2,40 @@
 
 import { MdFavoriteBorder } from "react-icons/md";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formatprice } from "../utils/formatPrice";
 import { truncateText } from "../utils/truncateText";
 import { useCart } from "../hooks/useCart";
 import Rating from "@mui/material/Rating";
+import { useEffect, useState } from "react";
 
 interface ProductCardProps {
   data: any;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
-  const { handleAddProductToCart } = useCart();
+  const [isProductInCart, setIsProductInCart] = useState(false);
+  const { handleAddProductToCart, cartProducts } = useCart();
   /*   const productRating =
     data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
     data.reviews.length;
  */
+  const updatedData = { ...data, quantity: 1 };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsProductInCart(false);
+    if (cartProducts) {
+      const existingIndex = cartProducts.findIndex(
+        (item) => item.id === data.id
+      );
+
+      if (existingIndex > -1) {
+        setIsProductInCart(true);
+      }
+    }
+  }, [cartProducts]);
 
   return (
     <div className="col-span-1 cursor-pointer   rounded-sm transition hover:scale-105 text-center text-sm font-poppins">
@@ -49,13 +67,23 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           </div>
         </div>
       </Link>
-
-      <button
-        className="bg-primary2 text-[#121212] text-center w-full h-[40px] rounded-lg hover:scale-105"
-        onClick={() => handleAddProductToCart(data)}
-      >
-        Add to cart
-      </button>
+      {isProductInCart ? (
+        <button
+          className="bg-primary2 opacity-65 text-[#121212] text-center w-full h-[40px] rounded-lg hover:scale-105"
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
+          Product in cart
+        </button>
+      ) : (
+        <button
+          className="bg-primary2 text-[#121212] text-center w-full h-[40px] rounded-lg hover:scale-105"
+          onClick={() => handleAddProductToCart(updatedData)}
+        >
+          Add to cart
+        </button>
+      )}
     </div>
   );
 };
