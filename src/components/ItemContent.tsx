@@ -22,14 +22,14 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
   console.log(cartTotalQty);
 
   return (
-    <div className="flex md:flex-col">
-      <div className="grid grid-cols-10 text-xs md:text-sm gap-4 border-t-[1.5px] border-slate-200 py-4 items-center">
+    <div className="flex flex-col  md:flex-row md:gap-5 font-poppins">
+      <div className="grid grid-cols-10 text-xs md:text-sm gap-1 border-t-[1.5px] border-slate-200 py-4 items-center">
         <div className="w-[70px]">
           <button
             className="text-secondaryColor underline"
             onClick={() => handleRemoveProductFromCart(item)}
           >
-            <MdOutlineDeleteOutline />
+            <MdOutlineDeleteOutline size={20} />
           </button>
         </div>
         <div className="col-span-4 justify-self-start flex gap-2 md:gap-4">
@@ -61,11 +61,10 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
           />
         </div>
 
-        <div className="justify-self-end font-semibold 2">
+        <div className="justify-self-end font-semibold col-span-2">
           {formatprice(item.price * item.quantity)}
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

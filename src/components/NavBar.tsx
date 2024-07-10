@@ -24,8 +24,13 @@ const NavBar: React.FC = () => {
         </div>
 
         <div className="flex text-xl gap-4">
-          <FaRegCircleQuestion />
-          <FaRegUserCircle />
+          <Link to="/search">
+            <FaRegCircleQuestion />
+          </Link>
+
+          <Link to="/profile">
+            <FaRegUserCircle />
+          </Link>
           <CartCount />
         </div>
       </div>
