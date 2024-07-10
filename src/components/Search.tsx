@@ -1,7 +1,13 @@
 import { FaSearch } from "react-icons/fa";
 import { BiSliderAlt } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Search = () => {
+  const naviagate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex mt-5 h-[44px] gap-2 items-center justify-center">
       <div className="relative flex items-center h-6 w-full max-w-[350px]">
@@ -20,7 +26,12 @@ const Search = () => {
           <FaSearch />
         </div>
       </div>
-      <div className="flex justify-center items-center bg-[#F4F4F4] text-primary2 rounded-xl h-[44px] w-[44px] px-2 text-[24px]">
+      <div
+        className="flex justify-center cursor-pointer items-center bg-[#F4F4F4] text-primary2 rounded-xl h-[44px] w-[44px] px-2 text-[24px]"
+        onClick={() => {
+          naviagate("/filter");
+        }}
+      >
         <BiSliderAlt />
       </div>
     </div>

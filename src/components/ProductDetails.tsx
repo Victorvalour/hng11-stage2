@@ -40,6 +40,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const [isProductInCart, setIsProductInCart] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setIsProductInCart(false);
     if (cartProducts) {
       const existingIndex = cartProducts.findIndex(

@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import check from "../assets/check.svg";
 
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const PaymentSuccess = () => {
   const navigate = useNavigate();
@@ -12,6 +13,9 @@ const PaymentSuccess = () => {
     month: "long",
     day: "numeric",
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const formattedDate = date.toLocaleDateString("en-US", options);
 

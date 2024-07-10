@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 
 const DottedLoadingSpinner = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="h-[100vh] w-full inset-0 flex justify-center items-center">
       <ThreeCircles
