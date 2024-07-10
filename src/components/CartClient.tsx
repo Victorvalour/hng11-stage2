@@ -1,5 +1,3 @@
-"use client";
-
 import { useCart } from "../hooks/useCart";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { MdArrowBack } from "react-icons/md";

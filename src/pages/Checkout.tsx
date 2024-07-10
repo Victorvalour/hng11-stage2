@@ -1,4 +1,4 @@
-import CheckoutClient from "../components/CartClient";
+import CheckoutClient from "../components/CheckoutClient";
 
 const Checkout = () => {
   return (
