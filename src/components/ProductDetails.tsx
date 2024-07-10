@@ -22,6 +22,7 @@ export type CartProductType = {
   brand: string;
   price: number;
   quantity: number;
+  image: string;
 };
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
