@@ -9,6 +9,13 @@ import {
   BreadcrumbSeparator,
 } from "../components/ui/breadcrumb";
 import { Tab, Tabs } from "./Tabs";
+import { Rating } from "@mui/material";
+import { formatprice } from "../utils/formatPrice";
+import SetQuantity from "./SetQuantity";
+import { useCart } from "../hooks/useCart";
+import { MdFavoriteBorder } from "react-icons/md";
+import Button from "./Button";
+import { useCallback, useState } from "react";
 
 interface ProductDetailsProps {
   product: any;
@@ -27,11 +34,41 @@ export type CartProductType = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const { id } = useParams();
+  const { handleAddProductToCart } = useCart();
 
-  console.log(product);
+  const [cartProduct, setCartProduct] = useState<CartProductType>({
+    id: product.id,
+    name: product.name,
+    description: product.description,
+    categories: product.category,
+    brand: product.brand,
+    image: product.image,
+    quantity: 1,
+    price: product.price,
+  });
+  console.log(cartProduct);
 
+  const handleQtyIncrease = useCallback(() => {
+    if (cartProduct.quantity === 99) {
+      return;
+    }
+
+    setCartProduct((prev) => {
+      return { ...prev, quantity: ++prev.quantity };
+    });
+  }, [cartProduct]);
+
+  const handleQtyDecrease = useCallback(() => {
+    if (cartProduct.quantity === 1) {
+      return;
+    }
+
+    setCartProduct((prev) => {
+      return { ...prev, quantity: --prev.quantity };
+    });
+  }, [cartProduct]);
   return (
-    <div>
+    <div className="font-poppins">
       <Breadcrumb className="text-primary2">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -52,9 +89,53 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div>
-        <div>Image</div>
-        <div>Product info</div>
+      <div className="image-info grid grid-cols-1 md:grid-cols-10 gap-12">
+        <div className="md:col-span-4">
+          <img src={product.image} alt="" />
+        </div>
+        <div className="md:col-span-6 flex flex-col gap-4">
+          <div className="font-semibold text-[#4D4D4D]">
+            {<Rating name="product-rating" value={product.rating} readOnly />}
+          </div>
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
+          <div className="flex gap-3">
+            <p className="font-semibold">{formatprice(product.price)}</p>
+            <p className="text-[#6C7275]">{formatprice(product.oldPrice)}</p>
+          </div>
+
+          <hr />
+          <div className="flex gap-1">
+            <p>Brand: </p> <p>{product.brand}</p>
+          </div>
+          <hr />
+
+          <div className="flex gap-1 mb-3">
+            <p>CATEGORY: </p>
+            <div>
+              {product.categories.map((category: string) => {
+                <p>{category}</p>;
+              })}
+            </div>
+          </div>
+
+          <div className="flex w-full gap-2 justify-between">
+            <SetQuantity
+              cartCounter={true}
+              cartProduct={cartProduct}
+              handleQtyIncrease={handleQtyIncrease}
+              handleQtyDecrease={handleQtyDecrease}
+            />
+            <button className="border-2 border-black flex">
+              <MdFavoriteBorder /> Wishlist
+            </button>
+          </div>
+
+          <Button
+            label="Add to Cart"
+            onClick={() => handleAddProductToCart(cartProduct)}
+          />
+        </div>
       </div>
 
       <div>
