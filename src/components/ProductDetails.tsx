@@ -170,7 +170,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <Tab label="Descriptions">
             <div className="py-4">
               <h2 className="text-lg font-medium mb-2">Descriptions</h2>
-              <p className="text-gray-700"></p>
+              <p className="text-gray-700">{product.description}</p>
             </div>
           </Tab>
           <Tab label="Additional information">

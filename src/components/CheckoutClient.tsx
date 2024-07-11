@@ -84,7 +84,49 @@ const CheckoutClient = () => {
                 <div className="shadow-xl shadow-slate-200 rounded-md p-4 flex flex-col space-y-2 ">
                   <div className="">
                     <p className="text-lg font-semibold text-slate-600">
-                      Delivery Details
+                      Contact Information
+                    </p>
+                  </div>
+                  <hr />
+
+                  <Input
+                    id="firstName"
+                    label="First name"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <Input
+                    id="lastName"
+                    label="Last name"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <Input
+                    id="phoneNumber"
+                    label="Phone number"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <Input
+                    id="email"
+                    label="Email Address"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                </div>
+
+                <div className="shadow-xl shadow-slate-200 rounded-md p-4 flex flex-col space-y-2 ">
+                  <div className="">
+                    <p className="text-lg font-semibold text-slate-600">
+                      Shipping Address
                     </p>
                   </div>
                   <hr />
@@ -101,8 +143,16 @@ const CheckoutClient = () => {
                     required
                   />
                   <Input
+                    id="country"
+                    label="Country"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                  />
+                  <Input
                     id="city"
-                    label="City / Town"
+                    label="Town / City"
                     disabled={isLoading}
                     register={register}
                     errors={errors}
@@ -117,8 +167,8 @@ const CheckoutClient = () => {
                     required
                   />
                   <Input
-                    id="phoneNumber"
-                    label="Phone Number"
+                    id="zipcode"
+                    label="Zip Code"
                     disabled={isLoading}
                     register={register}
                     errors={errors}
@@ -136,7 +186,7 @@ const CheckoutClient = () => {
                   <div className="flex flex-col mb-8">
                     <RadioInput
                       id="pay-now"
-                      label="Pay now"
+                      label="PayPal"
                       disabled={isLoading}
                       register={register}
                       errors={errors}
@@ -158,7 +208,7 @@ const CheckoutClient = () => {
                   <div className="flex flex-col mb-6">
                     <RadioInput
                       id="pay-on-delivery"
-                      label="Pay on delivery"
+                      label="Pay by Credit or Debit Card"
                       disabled={isLoading}
                       register={register}
                       errors={errors}

@@ -1,6 +1,6 @@
 "use client";
 
-import { MdFavoriteBorder } from "react-icons/md";
+import Heart from "react-animated-heart";
 
 import { Link, useNavigate } from "react-router-dom";
 import { formatprice } from "../utils/formatPrice";
@@ -16,6 +16,8 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const [isProductInCart, setIsProductInCart] = useState(false);
   const { handleAddProductToCart, cartProducts } = useCart();
+  const [isWishlistClicked, setIsWishlistClicked] = useState(false);
+
   /*   const productRating =
     data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
     data.reviews.length;
@@ -43,8 +45,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         <div className="flex justify-center items-center bg-[#EA3010] text-white px-1 h-5 rounded">
           <p>New</p>
         </div>
-        <div className="shadow-black shadow  rounded-full w-[26px] h-[26px] flex justify-center items-center">
-          <MdFavoriteBorder />
+        <div className="shadow-black shadow  rounded-full flex justify-center items-center relative">
+          <Heart
+            styles={{
+              margin: "0px",
+              zIndex: 10,
+              position: "absolute",
+              right: "0",
+            }}
+            isClick={isWishlistClicked}
+            onClick={() => setIsWishlistClicked(!isWishlistClicked)}
+          />
         </div>
       </div>
       <Link to={`/product/${data.id}`}>
