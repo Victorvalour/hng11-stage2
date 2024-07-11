@@ -68,6 +68,10 @@ const CheckoutClient = () => {
  */
   const isLoading = false;
 
+  if (isPaymentSuccessful) {
+    return <PaymentSuccess />;
+  }
+
   return (
     <div>
       {loading ? (
@@ -211,7 +215,6 @@ const CheckoutClient = () => {
               </div>
             </div>
           </div>
-          {isPaymentSuccessful && <PaymentSuccess />}
         </form>
       )}
     </div>

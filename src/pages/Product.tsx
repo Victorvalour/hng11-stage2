@@ -14,6 +14,10 @@ export type CartProductType = {
 };
 
 const Product = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { id } = useParams<{ id: string }>();
 
   const [product, setProduct] = useState<CartProductType | null>(null);

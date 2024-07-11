@@ -20,11 +20,11 @@ const PaymentSuccess = () => {
   const formattedDate = date.toLocaleDateString("en-US", options);
 
   return (
-    <div className="absolute inset-0  top-0 flex flex-col items-center justify-center gap-2 bg-white z-10 font-poppins">
-      <p className="mt-4 text-xl font-semibold font-poppins text-[#747474]">
+    <div className=" inset-0   flex flex-col items-center justify-start gap-2 bg-white z-10 font-poppins mt-4">
+      <p className="mt-4 text-xl font-semibold font-poppins text-[#747474] text-center">
         Thank You for Your Purchase!!🌟
       </p>
-      <p className="mt-2 text-3xl font-semibold font-poppins">
+      <p className="mt-2 text-3xl font-semibold font-poppins text-center">
         Order placed Successfully
       </p>
       <div className="z-10 text-center">

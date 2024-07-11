@@ -4,12 +4,17 @@ import Sort from "../components/Sort";
 /* import getProducts, { IProductParams } from "../services/getProducts"; */
 import { products } from "../utils/products";
 import ProductCard from "../components/ProductCard";
+import { useEffect } from "react";
 /* interface HomeProps {
   searchParams: IProductParams;
 }
  */
 /* { searchParams }: HomeProps */
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   /*   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState<IProductParams>(searchParams); */
 
