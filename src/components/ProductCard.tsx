@@ -49,6 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           <Heart
             styles={{
               margin: "0px",
+              width: "70px",
               zIndex: 10,
               position: "absolute",
               right: "0",

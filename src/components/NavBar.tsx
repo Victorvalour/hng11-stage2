@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { FaRegCircleQuestion } from "react-icons/fa6";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle, FaSearch } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import Hamburger from "./Hamburger";
 import CartCount from "./CartCount";
@@ -20,7 +20,34 @@ const NavBar: React.FC = () => {
         <div className="flex gap-3">
           <Hamburger isClicked={menuIsOpen} toggleOpen={toggleOpen} />
 
-          <p>Timbu</p>
+          <p className="font-poppins text-xl">Timbu</p>
+        </div>
+
+        <div className="md:flex mt-5 h-[44px] items-center justify-center hidden ">
+          <div className="relative flex items-center h-6 w-full max-w-[350px]">
+            <input
+              autoComplete="off"
+              type="text"
+              placeholder="Search software, tools"
+              className="bg-[#F4F4F4]  pl-10 border-[0.5px] rounded-l-lg focus:outline-none focus:border-[1px] focus:border-primaryColor w-full md:max-w-120 h-[44px]"
+            />
+            <div
+              onClick={() => {
+                console.log("Search working");
+              }}
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+            >
+              <FaSearch />
+            </div>
+          </div>
+          <button
+            className="flex justify-center cursor-pointer items-center bg-primary2 text-black rounded-r-lg h-[44px] w-[64px] text-sm px-2"
+            onClick={() => {
+              /* naviagate("/filter"); */
+            }}
+          >
+            Search
+          </button>
         </div>
 
         <div className="flex text-xl gap-4">
