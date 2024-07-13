@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import ProductDetails from "../components/ProductDetails";
 import { useEffect, useState } from "react";
 import getProductById from "../services/getProductById";
+import { ProductSkeleton } from "../components/ProductSkeleton";
 
 export type CartProductType = {
   id: string;
@@ -26,7 +27,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const productData: any = await getProductById({ productId: id });
+        const productData: any = await getProductById({ productId: id! });
         setProduct(productData);
       } catch (error) {
         console.error("Failed to fetch product:", error);
@@ -38,18 +39,9 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
-  console.log(product);
-
   return (
     <div>
-      <ProductDetails product={product} />
+      {loading ? <ProductSkeleton /> : <ProductDetails product={product} />}
     </div>
   );
 };

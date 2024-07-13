@@ -16,10 +16,9 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
     handleRemoveProductFromCart,
     handleCartQtyIncrease,
     handleCartQtyDecrease,
-    cartTotalQty,
   } = useCart();
 
-  console.log(cartTotalQty);
+  console.log(item);
 
   return (
     <div className="flex flex-col  md:flex-row md:gap-5 font-poppins">
@@ -35,11 +34,16 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
         <div className="col-span-4 justify-self-start flex gap-2 md:gap-4">
           <Link to={`/product/${item.id}`}>
             <div className="relative w-[70px] aspect-square">
-              <img
-                src={item.image}
-                alt={item.image}
-                className="object-contain"
-              />
+              {item?.photos?.[0]?.url ? (
+                <img
+                  src={`https://api.timbu.cloud/images/${item.photos[0].url}`}
+                  alt={item.name}
+                />
+              ) : (
+                <div className="aspect-square w-full bg-gray-200 flex items-center justify-center">
+                  <span>No Image</span>
+                </div>
+              )}
             </div>
           </Link>
 

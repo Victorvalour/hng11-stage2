@@ -21,6 +21,10 @@ interface ProductDetailsProps {
   product: any;
 }
 
+interface Photos {
+  url: string;
+}
+
 export type CartProductType = {
   id: string;
   name: string;
@@ -29,7 +33,7 @@ export type CartProductType = {
   brand: string;
   price: number;
   quantity: number;
-  image: string;
+  photos: Photos[];
 };
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
@@ -62,7 +66,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     description: product.description,
     categories: product.category,
     brand: product.brand,
-    image: product.image,
+    photos: product.photos,
     quantity: 1,
     price: product.price,
   });
@@ -83,6 +87,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
       return;
     }
 
+    console.log(product);
     setCartProduct((prev) => {
       return { ...prev, quantity: --prev.quantity };
     });
@@ -111,7 +116,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
       <div className="image-info grid grid-cols-1 md:grid-cols-10 gap-12">
         <div className="md:col-span-4">
-          <img src={product.image} alt="" />
+          {product?.photos?.[0]?.url ? (
+            <img
+              src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+              alt={product.name}
+            />
+          ) : (
+            <div className="aspect-square w-full bg-gray-200 flex items-center justify-center">
+              <span>No Image</span>
+            </div>
+          )}
         </div>
         <div className="md:col-span-6 flex flex-col gap-4">
           <div className="font-semibold text-[#4D4D4D]">
@@ -120,7 +134,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <div className="flex gap-3">
-            <p className="font-semibold">{formatprice(product.price)}</p>
+            <p className="font-semibold">
+              {formatprice(product?.current_price?.[0]?.USD?.[0])}
+            </p>
             <p className="text-[#6C7275]">{formatprice(product.oldPrice)}</p>
           </div>
 

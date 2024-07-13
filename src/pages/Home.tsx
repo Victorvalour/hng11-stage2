@@ -7,6 +7,7 @@ import ProductCard from "../components/ProductCard";
 import { useEffect } from "react";
 import { useProducts } from "../hooks/useProducts";
 import { Product } from "../../types/productTypes";
+import { GridSkeleton } from "../components/GridSkeleton";
 // import Filter from "../components/Filter";
 /* interface HomeProps {
   searchParams: IProductParams;
@@ -19,7 +20,7 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { data } = useProducts();
+  const { data, loading } = useProducts();
 
   /*   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState<IProductParams>(searchParams); */
@@ -77,7 +78,7 @@ const Home = () => {
         <Search />
       </div>
       <div className="flex items-center">
-        <div className="flex justify-center m-5">
+        <div className="md:flex justify-center m-5 hidden ">
           <button
             className="text-black bg-primary2 focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none "
             type="button"
@@ -92,11 +93,16 @@ const Home = () => {
       </div>
       <div>
         {/*   <Filter /> */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {data?.items?.map((product: Product) => {
-            return <ProductCard key={product.id} data={product} />;
-          })}
-        </div>
+
+        {loading ? (
+          <GridSkeleton />
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+            {data?.items?.map((product: Product) => {
+              return <ProductCard key={product.id} data={product} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

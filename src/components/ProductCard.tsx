@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
       </div>
       <Link to={`/product/${data.id}`}>
         <div onClick={() => {}}>
-          <div className="flex flex-col items-start w-full gap-3">
+          <div className="flex flex-col items-start w-full gap-2">
             <div className="aspect-square overflow-hidden relative w-full">
               {data?.photos?.[0]?.url ? (
                 <img
@@ -82,8 +82,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
             </div>
             <p className="font-semibold text-[#4D4D4D]">Version</p>
             <div className="flex gap-3">
-              <p className="font-semibold">{formatprice(data.price)}</p>
-              <p className="text-[#6C7275]">{formatprice(data.oldPrice)}</p>
+              <p className="font-semibold">
+                {formatprice(data?.current_price?.[0]?.USD?.[0])}
+              </p>
+              <p className="text-[#6C7275]">
+                {formatprice(data?.discounted_price)}
+              </p>
             </div>
           </div>
         </div>
