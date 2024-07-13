@@ -2,19 +2,24 @@
 import Search from "../components/Search";
 import Sort from "../components/Sort";
 /* import getProducts, { IProductParams } from "../services/getProducts"; */
-import { products } from "../utils/products";
+/* import { products } from "../utils/products"; */
 import ProductCard from "../components/ProductCard";
 import { useEffect } from "react";
+import { useProducts } from "../hooks/useProducts";
+import { Product } from "../../types/productTypes";
 // import Filter from "../components/Filter";
 /* interface HomeProps {
   searchParams: IProductParams;
 }
  */
 /* { searchParams }: HomeProps */
+
 const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const { data } = useProducts();
 
   /*   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState<IProductParams>(searchParams); */
@@ -63,6 +68,9 @@ const Home = () => {
         window.removeEventListener('load', handleLoad);
       };
     }, []); */
+
+  console.log(data);
+
   return (
     <div>
       <div className="md:hidden">
@@ -85,7 +93,7 @@ const Home = () => {
       <div>
         {/*   <Filter /> */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {products.map((product: any) => {
+          {data?.items?.map((product: Product) => {
             return <ProductCard key={product.id} data={product} />;
           })}
         </div>

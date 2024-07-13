@@ -63,7 +63,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         <div onClick={() => {}}>
           <div className="flex flex-col items-start w-full gap-3">
             <div className="aspect-square overflow-hidden relative w-full">
-              <img src={data.image} alt="softwares" />
+              {data?.photos?.[0]?.url ? (
+                <img
+                  src={`https://api.timbu.cloud/images/${data.photos[0].url}`}
+                  alt={data.name}
+                />
+              ) : (
+                <div className="aspect-square w-full bg-gray-200 flex items-center justify-center">
+                  <span>No Image</span>
+                </div>
+              )}
             </div>
             <div className="font-semibold text-[#4D4D4D]">
               {<Rating name="product-rating" value={data.rating} readOnly />}
