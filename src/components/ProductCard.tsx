@@ -77,7 +77,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
             <div className="font-semibold text-[#4D4D4D]">
               {<Rating name="product-rating" value={data.rating} readOnly />}
             </div>
-            <div className=" font-semibold text-[#4D4D4D]">
+            <div className=" font-semibold text-[#4D4D4D] text-left h-8">
               {truncateText(data.name)}
             </div>
             <p className="font-semibold text-[#4D4D4D]">Version</p>

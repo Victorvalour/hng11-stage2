@@ -6,11 +6,19 @@ import ItemContent from "./ItemContent";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
 import { formatprice } from "../utils/formatPrice";
+import { useState } from "react";
+import SpinnerDotted from "./SpinnerDotted";
 
 const CartClient = () => {
   const { cartProducts, handleClearCart, cartTotalAmount } = useCart();
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const navigate = useNavigate();
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000);
 
   if (!cartProducts || cartProducts.length === 0) {
     return (
@@ -31,6 +39,9 @@ const CartClient = () => {
     );
   }
 
+  if (isLoading) {
+    return <SpinnerDotted />;
+  }
   return (
     <div className="flex flex-col md:flex-row w-full md:justify-center md:items-start gap-3">
       {/*   <div className="grid grid-cols-5 text-xs gap-4 pb-2 items-center mt-8">

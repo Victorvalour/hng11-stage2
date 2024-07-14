@@ -24,6 +24,9 @@ interface ProductDetailsProps {
 interface Photos {
   url: string;
 }
+interface Prices {
+  USD: string | number[] | null | any;
+}
 
 export type CartProductType = {
   id: string;
@@ -34,6 +37,7 @@ export type CartProductType = {
   price: number;
   quantity: number;
   photos: Photos[];
+  current_price: Prices[];
 };
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
@@ -69,6 +73,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     photos: product.photos,
     quantity: 1,
     price: product.price,
+    current_price: product.currentprice,
   });
   console.log(cartProduct);
 
@@ -134,9 +139,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <div className="flex gap-3">
-            <p className="font-semibold">
-              {formatprice(product?.current_price?.[0]?.USD?.[0])}
-            </p>
+            <p className="font-semibold">{formatprice(155)}</p>
             <p className="text-[#6C7275]">{formatprice(product.oldPrice)}</p>
           </div>
 
@@ -155,15 +158,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             </div>
           </div>
 
-          <div className="flex w-full gap-2 justify-between">
+          <div className="flex w-full h-12 gap-4 ">
             <SetQuantity
               cartCounter={true}
               cartProduct={cartProduct}
               handleQtyIncrease={handleQtyIncrease}
               handleQtyDecrease={handleQtyDecrease}
             />
-            <button className="border-2 border-black flex">
-              <MdFavoriteBorder /> Wishlist
+            <button className="border-gray-600 border-[0.5px] flex w-full justify-center items-center gap-2 font-poppins rounded">
+              <MdFavoriteBorder color="#FEBC11" size={20} /> <p>Wishlist</p>
             </button>
           </div>
           {isProductInCart ? (
@@ -205,10 +208,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           </Tab>
         </Tabs>
       </div>
-
-      <h1>Product Details</h1>
-      <p>Product ID: {id}</p>
-      {/* Fetch and display more product details based on the ID */}
     </div>
   );
 };

@@ -5,11 +5,13 @@ import { FaRegUserCircle, FaSearch } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import Hamburger from "./Hamburger";
 import CartCount from "./CartCount";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
 const NavBar: React.FC = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const toggleOpen = useCallback(() => {
     setMenuIsOpen((prev) => !prev);
@@ -20,7 +22,12 @@ const NavBar: React.FC = () => {
         <div className="flex gap-3">
           <Hamburger isClicked={menuIsOpen} toggleOpen={toggleOpen} />
 
-          <p className="font-poppins text-xl">Timbu</p>
+          <p
+            className="font-poppins text-xl cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            Timbu
+          </p>
         </div>
 
         <div className="md:flex mt-5 h-[44px] items-center justify-center hidden ">
